@@ -1,0 +1,12 @@
+application: ks-exp
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+
+- url: /ra
+  static_dir: static/runaround
+  
+- url: /runaround.*
+  script: runaround/runaround.py

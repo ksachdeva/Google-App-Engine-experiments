@@ -1,0 +1,46 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+  <img src="/ra/static/images/runaround_image.jpg" class="welcome_img" />
+
+  <div class="welcome_dialog">
+  	<h3>Welcome to the Run Around</h3>
+
+  	<p>This is a simple site where you can log your runs and chart progress on your workout routine.</p>
+
+ 	<div class="clearfix">
+ 		<form action="/runaround/login/" method="post">
+    		<div class="login_sector">
+    			<div class="login_prompt">
+    				<b>Login</b>:
+    			</div>
+    			<div class="clearfix">
+    				<label>Username:</label>
+    				<input name="username" class="inputtext" type="text" size="20" value="" />
+    			</div>
+      			<div class="clearfix">
+      				<label>Password:</label>
+      				<input name="password" class="inputtext" type="password" size="20" value=""/>
+      			</div>
+      			<input id="submit" class="inputsubmit" value="Login" name="submit" type="submit" />
+    		</div>
+    		
+    		
+    		<div class="login_sector_fb">
+    			<div class="login_prompt">Or <b>login</b> with Facebook:</div>
+    				{% fbconnect_button "medium" %}
+    		</div>
+    		
+  		</form>
+  		
+  	</div>
+  	
+    <div class="signup_container">
+    	Don't have an account? <a href="/runaround/register">Register Now!</a>
+    </div>
+    
+  </div>
+	
+{% endblock content %}

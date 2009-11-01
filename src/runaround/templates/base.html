@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml"> 
+  <head> 
+   <title>The Run Around</title> 
+    <link type="text/css" rel="stylesheet" href="/ra/static/css/style.css" /> 
+    <script type="text/javascript" src="/ra/static/js/base.js"></script> 
+  
+  </head> 
+  
+  <body>
+  
+  	<div id="header">
+  		<div class="header_content">
+  			<a href="/runaround/" class="title">
+  				<img src="/ra/static/images/runaround_logo.gif" />
+  			</a>
+  			
+  			{% if user.is_authenticated %}
+  				<p>Welcome, {{ user.username }}. Thanks for logging in.</p>
+  			{% else %}
+  				<div class="account">Hello Guest | 
+					<a href="/runaround/register/">Register for an account</a>
+				</div>
+			{% endif %}
+  			
+  		</div>
+  	</div>
+  	
+  	<div class="body_content">
+  	
+  		{% block content %}	{% endblock %}
+  		
+  	</div>
+  	
+  	<div class="footer_stuff">This is an awesome running app.</div>
+
+	<script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
+     <script type="text/javascript">
+       FB.init("edbc02640bc38965940b56cece534ad5", "/runaround/xd_receiver");
+     </script>
+	<script type="text/javascript" src="/ra/static/js/fbconnect.js"></script> 
+  
+  </body>
+  
+</html> 

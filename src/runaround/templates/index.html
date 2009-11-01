@@ -1,0 +1,54 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+	<div class="clearfix">
+		<div class="bluebox">
+		
+			<h3>Where did you run recently?</h3>
+			<form action="index.php" method="post">
+
+				<table class="add_run_table">
+  					
+  					<tr>
+	  					<td class="editor_key">
+	    					<label id="label_route" for="route">Where did you go?</label>
+	    				</td>
+	    				<td class="editor_value">
+	   						 <input id="route" class="inputtext" type="text" size="20" value="" name="route"/>
+	    				</td>
+	    			</tr>
+	    			
+	    			<tr>
+	  					<td class="editor_key">
+	    					<label id="label_miles" for="miles">Number of miles</label>
+	    				</td>
+	    				<td class="editor_value">
+	   						 <input id="miles" class="inputtext" type="text" size="20" value="" name="miles"/>
+	    				</td>
+	    			</tr>
+	    			
+  					<tr>
+  						<td class="editor_key"><label>Date (MM/DD/YYYY)</label></td>
+    					<td class="editor_value">
+    						<input id="date_month" class="inputtext datefield" name="date_month" type="text" size="2" maxlength="2" />
+    						/<input id="date_day" class="inputtext datefield" name="date_day" type="text" size="2" maxlength="2" />
+    						/<input id="date_year" class="inputtext datefield" name="date_year" type="text" size="4" maxlength="4" />
+    					</td>
+   					 </tr>
+  				</table>
+  
+				<p id="publish_fb_checkbox" style="'.$style.'" >
+   					<img src="http://static.ak.fbcdn.net/images/icons/favicon.gif" /> 
+   					<input type="checkbox" name="publish_to_facebook" checked /> 
+   					Publish this run to Facebook
+  			    </p>
+				<input class="inputsubmit" type="submit" name="submit" value="Add Run"/>
+				
+			</form>
+			
+		</div>
+	</div>
+  
+{% endblock content %}
