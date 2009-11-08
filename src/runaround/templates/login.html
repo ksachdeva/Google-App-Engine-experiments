@@ -1,0 +1,41 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if error %}
+  <div class="error">{{ error }}</div>
+{% endif %}
+
+<a href="/runaround/register/">Register a new account now!</a> Or try again below:
+
+<form action="/runaround/login/" method="post">
+
+	<div id="loginbox">
+		
+		<table>
+		 <tr>
+		  <td>
+		    <label id="label_username" for="username">Username:</label>
+		  </td><td>
+		    <input id="username" class="inputtext" type="text" size="20" value="" name="username"/>
+		  </td>
+		 </tr>
+		 <tr>
+		  <td>
+		    <label id="label_password" for="password">Password:</label>
+		  </td>
+		  <td>
+			<input id="password" class="inputtext" type="password" size="20" name="password"/>
+		  </td>
+		 </tr>
+		</table>
+		
+		<input class="inputsubmit" type="submit" name="doquicklogin" value="Login"/>
+	
+	</div>
+
+</form>
+
+
+{% endblock content %}
