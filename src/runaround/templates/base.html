@@ -17,8 +17,29 @@
   				<img src="/ra/static/images/runaround_logo.gif" />
   			</a>
   			
-  			{% if user.is_authenticated %}
-  				<p>Welcome, {{ user.username }}. Thanks for logging in.</p>
+  			{% if user %}
+  			
+  				{% if user.is_facebook_user %}
+  					<div id="header-profilepic">
+      					<fb:profile-pic uid={{ user.fb_uid }} size="square" facebook-logo="true">
+      					</fb:profile-pic>
+      				</div>
+      			{% endif %}
+      			
+      			<div id="header-account">
+    				<b>Welcome, {{ user.getName }} </b>
+    				<div class="account_links">
+    					<a href="/runaround/account/">Account Settings</a> |
+    					{% if user.is_facebook_user %}
+    						<a href="#" onclick="FB.Connect.logout(function() { refresh_page(); })">
+    							Logout of Facebook
+    						</a>
+    					{% else %}
+    						<a href="/runaround/logout/">Logout</a>
+    					{% endif %}
+    					<br/></div>
+    			</div>
+  			
   			{% else %}
   				<div class="account">Hello Guest | 
 					<a href="/runaround/register/">Register for an account</a>
@@ -38,9 +59,17 @@
 
 	<script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
      <script type="text/javascript">
-       FB.init("edbc02640bc38965940b56cece534ad5", "/runaround/xd_receiver");
+       FB.init("a5088321e5e31eef9433bcd781ac5a91", "/runaround/xd_receiver/");
      </script>
+     
 	<script type="text/javascript" src="/ra/static/js/fbconnect.js"></script> 
+	
+	<script type="text/javascript">
+		window.onload = function() { 
+			facebook_onload(true); 
+		};
+	</script>
+	
   
   </body>
   

@@ -53,7 +53,7 @@ function facebook_onlogin_ready() {
  * then you could change it in Javascript without refresh.
  */
 function refresh_page() {
-  window.location = 'index.jsp';
+  window.location = '/runaround/';
 }
 
 /*

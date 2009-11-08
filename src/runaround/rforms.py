@@ -1,7 +1,7 @@
 
 from google.appengine.ext.db import djangoforms
 
-import models
+from runaround import models
 
 class RegisterForm(djangoforms.ModelForm):
     class Meta:
